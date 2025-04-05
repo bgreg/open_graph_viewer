@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @preview %>
+
+<div>
+  <%= link_to "Edit this preview", edit_preview_path(@preview) %> |
+  <%= link_to "Back to previews", previews_path %>
+
+  <%= button_to "Destroy this preview", @preview, method: :delete %>
+</div>
