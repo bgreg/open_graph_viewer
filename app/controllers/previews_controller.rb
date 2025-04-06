@@ -1,6 +1,5 @@
 class PreviewsController < ApplicationController
-  before_action :set_preview, only: %i[ show edit update destroy ]
-
+  before_action :set_preview, only: %i[destroy]
 
   # GET /previews or /previews.json
   def index
@@ -8,43 +7,29 @@ class PreviewsController < ApplicationController
     @previews = Preview.all
   end
 
-  # GET /previews/1 or /previews/1.json
-  def show
-  end
-
-  # GET /previews/new
-  def new
-    @preview = Preview.new
-  end
-
-  # GET /previews/1/edit
-  def edit
-  end
-
-  # POST /previews or /previews.json
   def create
-    @preview = Preview.new(preview_params)
+    og = OpenGraph.new(preview_params[:url].squish)
+    attributes = {
+      title: og.title,
+      og_type: og.type,
+      url: og.url,
+      # description: og.description,
+      image: og.images.first,
+      user_id: current_user.id
+    }
+    preview = Preview.new(attributes)
 
     respond_to do |format|
-      if @preview.save
-        format.html { redirect_to @preview, notice: "Preview was successfully created." }
-        format.json { render :show, status: :created, location: @preview }
+      if preview.save
+        format.turbo_stream do
+          render(
+            turbo_stream: turbo_stream.append(:previews,
+              partial: "previews/preview",
+              locals: {preview: preview})
+          )
+        end
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @preview.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /previews/1 or /previews/1.json
-  def update
-    respond_to do |format|
-      if @preview.update(preview_params)
-        format.html { redirect_to @preview, notice: "Preview was successfully updated." }
-        format.json { render :show, status: :ok, location: @preview }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @preview.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -60,13 +45,14 @@ class PreviewsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_preview
-      @preview = Preview.find(params.expect(:id))
-    end
 
-    # Only allow a list of trusted parameters through.
-    def preview_params
-      params.expect(preview: [ :url, :type, :image, :title, :prefix ])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_preview
+    @preview = Preview.find(params.expect(:id))
+  end
+
+  # Only allow a list of trusted parameters through.
+  def preview_params
+    params.expect(preview: [:url])
+  end
 end

@@ -7,12 +7,5 @@
 <%= render "form", preview: @preview %>
 
 <div id="previews">
-  <% @previews.each do |preview| %>
-    <%= render preview %>
-    <p>
-      <%= link_to "Show this preview", preview %>
-    </p>
-  <% end %>
+  <%= render @previews %>
 </div>
-
-<%= link_to "New preview", new_preview_path %>
