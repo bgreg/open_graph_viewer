@@ -13,7 +13,6 @@ class PreviewsController < ApplicationController
       title: og.title,
       og_type: og.type,
       url: og.url,
-      # description: og.description,
       image: og.images.first,
       user_id: current_user.id
     }

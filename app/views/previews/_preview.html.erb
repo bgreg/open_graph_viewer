@@ -1,28 +1,14 @@
-  <div id="<%= dom_id preview %>">
-    <p>
-      <strong>Url:</strong>
-      <%= preview.url %>
-    </p>
+<div id="<%= dom_id preview %>">
+  <p>
+    <strong>Title:</strong>
+    <%= preview.title %>
+  </p>
+  <p>
+    <strong>Url:</strong>
+    <%= preview.url %>
+  </p>
 
-    <p>
-      <strong>Type:</strong>
-      <%= preview.og_type %>
-    </p>
+  <%= image_tag(preview.image) %>
 
-    <p>
-      <strong>Image:</strong>
-      <%= image_tag(preview.image) %>
-    </p>
-
-    <p>
-      <strong>Title:</strong>
-      <%= preview.title %>
-    </p>
-
-    <p>
-      <strong>Prefix:</strong>
-      <%= preview.prefix %>
-    </p>
-
-  </div>
-  <%= button_to 'Destroy', preview_path(preview), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+</div>
+<%= button_to 'Destroy', preview_path(preview), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
