@@ -28,4 +28,13 @@ RSpec.describe Preview, type: :model do
   describe "associations" do
     it { should belong_to(:user).optional }
   end
+
+  describe "build_with" do
+    let(:user) { FactoryBot.create(:user) }
+
+    it "will build a preview with the given a URL" do
+      a_preview = described_class.build_with("https://example.com", user)
+      expect(a_preview).to be_a(described_class)
+    end
+  end
 end

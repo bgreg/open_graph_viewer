@@ -60,3 +60,4 @@ end
 gem "devise"
 gem "actioncable"
 gem "opengraph_parser"
+gem "pry-rails"

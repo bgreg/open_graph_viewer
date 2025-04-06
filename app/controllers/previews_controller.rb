@@ -8,16 +8,7 @@ class PreviewsController < ApplicationController
   end
 
   def create
-    og = OpenGraph.new(preview_params[:url].squish)
-    attributes = {
-      title: og.title,
-      og_type: og.type,
-      url: og.url,
-      image: og.images.first,
-      user_id: current_user.id
-    }
-    preview = Preview.new(attributes)
-
+    preview = Preview.build_with(preview_params[:url], current_user)
     respond_to do |format|
       if preview.save
         format.turbo_stream do
