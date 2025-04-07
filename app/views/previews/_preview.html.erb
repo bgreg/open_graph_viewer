@@ -1,14 +1,12 @@
-<div id="<%= dom_id preview %>">
-  <p>
-    <strong>Title:</strong>
+<div id="<%= dom_id preview %>", class="preview-item">
+  <p class="url-title">
     <%= preview.title %>
   </p>
-  <p>
-    <strong>Url:</strong>
-    <%= preview.url %>
-  </p>
+  <div class="url">
+    <%= link_to preview.url, preview.url %>
+  </div>
 
-  <%= image_tag(preview.image) %>
+  <%= image_tag(preview.image, class: "block-image") %>
 
+  <%= button_to 'Destroy', preview_path(preview), method: :delete, class: 'danger danger-small' %>
 </div>
-<%= button_to 'Destroy', preview_path(preview), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>

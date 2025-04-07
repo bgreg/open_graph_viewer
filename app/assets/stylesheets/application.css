@@ -8,3 +8,172 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+/* Reset some basic elements */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, figure {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.danger {
+  background-color: darkred;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.danger:hover {
+  background-color: crimson;
+  transform: scale(1.05);
+}
+
+.danger:active {
+  background-color: firebrick;
+  transform: scale(0.95);
+}
+.danger-small {
+  font-size: 0.8em;
+  padding: 5px 8px;
+}
+
+.success {
+  background-color: darkgreen;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.success:hover {
+  background-color: forestgreen;
+  transform: scale(1.05);
+}
+
+.success:active {
+  background-color: seagreen;
+  transform: scale(0.95);
+}
+.inline-form{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+}
+.inline-form input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.page-header {
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.header-form{
+  display: flex;
+  justify-content: center;
+}
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+#previews {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+#previews > * {
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#previews .preview-item{
+  flex: 0 1 calc(33.333% - 16px);
+  box-sizing: border-box;
+  max-width: 300px;
+}
+
+.block-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.url {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 100%;
+  word-break: break-all;
+}
+
+.url-title {
+  font-size: 1.0em;
+  font-weight: bold;
+  color: #2c3e50;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease, transform 0.2s ease;
+  margin-bottom: 5px;
+}
+#flash{
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  z-index: 1000;
+}
+#flash-alert {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+#flash-notice{
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}

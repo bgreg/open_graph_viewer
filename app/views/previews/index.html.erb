@@ -1,9 +1,14 @@
 <% content_for :title, "Previews" %>
 
-<h1>Previews</h1>
+<div class="page-header">
+  <h1>Previews</h1>
+  <div class="header-form">
+    <%= render "form", preview: @preview %>
+  </div>
+</div>
 
-<%= render "form", preview: @preview %>
-
-<div id="previews">
-  <%= render @previews %>
+<div id="previews" >
+  <% @previews.each do |preview| %>
+      <%= render preview %>
+  <% end %>
 </div>

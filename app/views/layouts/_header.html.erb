@@ -1,0 +1,13 @@
+<div style="display: flex; justify-content: flex-end; padding: 10px;">
+  <% if user_signed_in? %>
+  <span>Signed in as <%= current_user.email %></span>
+  <%= button_to "Sign out",
+                destroy_user_session_path,
+                method: :delete,
+                class: "danger danger-small",
+                style: "margin-left: 10px;" %>
+  <% else %>
+  <%= link_to "Sign in", new_user_session_path, style: "margin-right: 10px;" %>
+  <%= link_to "Sign up", new_user_registration_path %>
+  <% end %>
+</div>
