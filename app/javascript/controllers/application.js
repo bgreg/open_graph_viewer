@@ -8,23 +8,12 @@ window.Stimulus   = application
 
 export { application }
 
+document.addEventListener("turbo:submit-end", () => {
+  const fadeAndRemove = (el) => {
+    el.style.transition = "opacity 1s ease-out";
+    el.style.opacity = "0";
+    setTimeout(() => el.remove(), 1000); // wait for transition
+  };
 
-document.addEventListener("turbo:submit-end", function() {
-  setTimeout(function() {
-    const notice = document.getElementById("flash-notice");
-    if (notice) {
-      notice.style.transition = "opacity 1s ease-out";
-      notice.style.opacity = "0";
-      setTimeout(() => notice.remove(), 1000);
-    }
-  }, 3000); // 3 seconds delay
-
-  setTimeout(function() {
-    const alert = document.getElementById("flash-alert");
-    if (alert) {
-      alert.style.transition = "opacity 1s ease-out";
-      alert.style.opacity = "0";
-      setTimeout(() => alert.remove(), 1000);
-    }
-  }, 3000); // 3 seconds delay
+  setTimeout(() => { document.querySelectorAll("[data-flash]").forEach(fadeAndRemove); }, 3000);
 });
