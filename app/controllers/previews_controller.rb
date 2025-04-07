@@ -8,18 +8,24 @@ class PreviewsController < ApplicationController
   end
 
   def create
-    preview = Preview.build_with(preview_params[:url], current_user)
+    @preview = Preview.build_with(preview_params[:url], current_user)
     respond_to do |format|
-      if preview.save
+      if @preview.save
         format.turbo_stream do
           render(
             turbo_stream: turbo_stream.append(:previews,
               partial: "previews/preview",
-              locals: {preview: preview})
+              locals: {preview: @preview})
           )
         end
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.turbo_stream do
+          flash.now[:alert] = @preview.errors.full_messages.to_sentence
+          render turbo_stream: [
+            turbo_stream.append("flash", partial: "layouts/flash", locals: {active: true})
+          ]
+        end
+        format.html { redirect_to previews_path, status: :unprocessable_entity }
       end
     end
   end

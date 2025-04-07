@@ -1,22 +1,10 @@
 <%= form_with(model: preview) do |form| %>
-  <% if preview.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(preview.errors.count, "error") %> prohibited this preview from being saved:</h2>
-
-      <ul>
-        <% preview.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+  <div class="inline-form">
+    <div>
+      <%= form.label :url, "Enter a URL to preview its Open Graph image and title metadata" %>
+      <%= form.text_field :url, style: "margin: 0 10px;" %>
     </div>
-  <% end %>
 
-  <div>
-    <%= form.label :url, style: "display: block" %>
-    <%= form.text_field :url %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit "Go", class: "success" %>
   </div>
 <% end %>
