@@ -4,7 +4,7 @@ class PreviewsController < ApplicationController
   # GET /previews or /previews.json
   def index
     @preview = Preview.new
-    @previews = Preview.all
+    @previews = Preview.where(user: current_user).order(created_at: :desc)
   end
 
   def create
