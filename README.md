@@ -25,7 +25,7 @@ While I was cruising along with the defaults for most of the project, I was init
 Over my career, I’ve deployed Rails apps in various ways. I’ve used Heroku countless times, appreciating its fast and simple deployment process, effortless scaling, free load balancing, and convenient plugin tools. I’ve also worked with bare-metal setups, including a memorable project where I built a self-installing RPM package to distribute a Rails app to every Apple Maps server worldwide.
 
 I just finished reading about Kamal, and I would love to experiment with it. Perhaps I will, just for fun.  I was pleasantly surprised to learn how much complexity Kamal removes from container services. Anyone who has worked with Kubernetes knows how quickly container orchestration systems can become overwhelming. Kamal seems to offer a refreshing simplification in this space, at least for small to medium applications.
----
+
 
 ## Getting Started
 
