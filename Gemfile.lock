@@ -390,8 +390,7 @@ DEPENDENCIES
   opengraph_parser
   pg (~> 1.1)
   propshaft
-  pry (~> 0.15.2)
-  pry-rails (~> 0.3.11)
+  pry-rails
   puma (>= 5.0)
   rails (~> 8.0.2)
   rspec-rails
