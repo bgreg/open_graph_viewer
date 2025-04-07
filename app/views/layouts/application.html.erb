@@ -24,11 +24,9 @@
 </head>
 
 <body>
-  <div style="display: flex; justify-content: center; align-items: center; height: auto; flex-direction: column;">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-  </div>
+  <%= render "layouts/header" %>
+  <%= render "layouts/flash" %>
+  <%= yield %>
 </body>
 
 </html>
