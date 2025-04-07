@@ -8,6 +8,7 @@ window.Stimulus   = application
 
 export { application }
 
+// to use this fade feature you need to add a 'data-flash' attribute to the element you want to fade
 document.addEventListener("turbo:submit-end", () => {
   const fadeAndRemove = (el) => {
     el.style.transition = "opacity 1s ease-out";
