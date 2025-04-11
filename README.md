@@ -1,5 +1,5 @@
 # README
-
+Toy project for experimentating with rails 8 features. 
 ## Overview
 
 Open Graph Viewer is a lightweight and user-friendly application designed to help developers and content creators preview and debug Open Graph metadata for their web pages. Open Graph metadata is essential for controlling how your content appears when shared on social media platforms like Facebook, Twitter, and LinkedIn. This tool ensures that your Open Graph tags are correctly implemented and display as intended.
