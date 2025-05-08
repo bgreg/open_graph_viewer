@@ -11,24 +11,6 @@ Open Graph Viewer is a lightweight and user-friendly application designed to hel
 - **User-Friendly Interface**: Simple and intuitive design for easy navigation.
 
 
-## Design
-As a personal challenge, I decided to use as many of the new Rails 8 features as I could. I had experimented a little with the latest Rails 7 before this, but I am delighted to report that building a fresh app on Rails 8 was a breeze. Rails continues it's tradition of a "batteries included" philosophy. Specifically, I was able to stream data from a controller with only a few lines of code—and without Redis! Rails now ships with its own key/value store called Solid Queue to support Action Cable, streaming via Turbo, and async job handling.
-
-Sticking with the theme of experimenting with all the new defaults, I also used SQLite. Of course, the database choice for a toy project isn't critical, but it was nice that SQLite came as the default and required zero configuration.
-
-That said, I did incorporate some of my personal preferences. I like to test with RSpec, debug with Pry, authenticate with Devise, and lint with StandardRB. StandardRB is particularly nice because it provides a simple, no-customization, take-it-or-leave-it approach to code style. This eliminates bike-shedding conversations—similar to tools like Go's formatter.
-
-## Challenges
-While I was cruising along with the defaults for most of the project, I was initially surprised that the flash messages were not working. Turns out I almost forgot I was still building a single page application, it felt like a typical rails feature the whole time! Views were being rendered on the server and sent to the front end via sockets. This meant that we also had to stream in our flash messages to ensure they displayed correctly.
-
-## Future
-Over my career, I’ve deployed Rails apps in various ways. I’ve used Heroku countless times, appreciating its fast and simple deployment process, effortless scaling, free load balancing, and convenient plugin tools. I’ve also worked with bare-metal setups, including a memorable project where I built a self-installing RPM package to distribute a Rails app to every Apple Maps server worldwide.
-
-I just finished reading about Kamal, and I would love to experiment with it. Perhaps I will, just for fun.  I was pleasantly surprised to learn how much complexity Kamal removes from container services. Anyone who has worked with Kubernetes knows how quickly container orchestration systems can become overwhelming. Kamal seems to offer a refreshing simplification in this space, at least for small to medium applications.
-
-
-## Getting Started
-
 ### Prerequisites
 
 Before you begin, ensure you have the following installed on your system:
